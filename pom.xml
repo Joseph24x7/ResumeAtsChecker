@@ -8,11 +8,11 @@
 		<version>3.0.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.resume.builder</groupId>
-	<artifactId>Resume-Builder</artifactId>
+	<groupId>com.virtual.resume.builder</groupId>
+	<artifactId>Virtual-Resume-Builder</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Resume-Builder</name>
-	<description>Resume Builder </description>
+	<name>Virtual-Resume-Builder</name>
+	<description>Virtual-Resume-Builder</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

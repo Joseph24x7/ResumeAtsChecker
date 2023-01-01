@@ -1,4 +1,4 @@
-package com.resume.builder;
+package com.virtual.resume.builder;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
