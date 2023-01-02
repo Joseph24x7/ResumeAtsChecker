@@ -13,7 +13,8 @@ public class VirtualResumeController {
 	@CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/getLinkedInDetails")
     public ResponseEntity<String> helloWorld(@RequestBody Data data) {
-        return new ResponseEntity<String>("Success! You have submitted the form: "+data.getUrl(), HttpStatus.OK);
+		System.out.println("Local");
+        return new ResponseEntity<String>("Hi "+data.getUsername()+ "! Welcome to the community! ", HttpStatus.OK);
     }
 
 }

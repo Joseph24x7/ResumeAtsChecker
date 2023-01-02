@@ -6,8 +6,9 @@ import lombok.Setter;
 @Getter @Setter
 public class Data {
 	
-	private String url;
 	private String username;
-	private String password;
+	private String summary;
+	private String mobile;
+	private String email;
 
 }
