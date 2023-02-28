@@ -1,4 +1,4 @@
-package com.virtual.resume.builder;
+package com.text.to.video;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
