@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.0.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.text.to.video</groupId>
 	<artifactId>Text-To-Video</artifactId>
@@ -32,8 +32,12 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<version>4.5.2</version>
+		</dependency>
 	</dependencies>
-
 	<build>
 		<finalName>texttovideo</finalName>
 		<plugins>
@@ -43,5 +47,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
