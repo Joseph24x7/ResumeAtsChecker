@@ -9,10 +9,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.text.to.video</groupId>
-	<artifactId>Text-To-Video</artifactId>
+	<artifactId>Resume-ATS-Checker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Text-To-Video-Convertor</name>
-	<description>Text-To-Video-Convertor</description>
+	<name>Resume-ATS-Checker</name>
+	<description>Resume-ATS-Checker</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -32,14 +32,9 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>edu.stanford.nlp</groupId>
-			<artifactId>stanford-corenlp</artifactId>
-			<version>4.5.2</version>
-		</dependency>
 	</dependencies>
 	<build>
-		<finalName>texttovideo</finalName>
+		<finalName>resumeatschecker</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

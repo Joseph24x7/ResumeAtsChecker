@@ -1,4 +1,4 @@
 FROM openjdk:17-oracle
-EXPOSE 8000
-ADD target/texttovideo.jar texttovideo.jar
-ENTRYPOINT ["java","-jar","/texttovideo.jar"]
+EXPOSE 8001
+ADD target/resumeatschecker.jar resumeatschecker.jar
+ENTRYPOINT ["java","-jar","/resumeatschecker.jar"]
