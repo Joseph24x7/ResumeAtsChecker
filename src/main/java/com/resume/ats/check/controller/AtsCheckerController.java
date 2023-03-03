@@ -18,7 +18,7 @@ public class AtsCheckerController {
 	
 	private final AtsCheckerService atsCheckerService;
 	
-	@PostMapping("/upload")
+	@PostMapping("/check-resume")
 	public ATSDetail generateAtsDetails(@RequestParam("file") MultipartFile file, @RequestParam("desc") String desc) throws IOException{
 		return atsCheckerService.generateAtsDetails(file, desc);
 	}
