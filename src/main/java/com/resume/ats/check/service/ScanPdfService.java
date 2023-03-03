@@ -15,6 +15,7 @@ public class ScanPdfService {
 		PDDocument document = PDDocument.load(file.getInputStream());
 	    PDFTextStripper stripper = new PDFTextStripper();
 	    String content = stripper.getText(document);
+	    content = content.toLowerCase();
 	    document.close();
 		return content;
 		

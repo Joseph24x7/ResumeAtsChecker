@@ -1,8 +1,8 @@
 package com.resume.ats.check.service;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,10 +26,11 @@ public class AtsCheckerService {
 	    
 	    atsDetail.setTotalKeywords(keywordExtractorService.extractKeywords(desc));
 
-	    List<String> unmatchedKeywords = new ArrayList<>();
-	    List<String> matchedKeywords = new ArrayList<>();
+	    Set<String> unmatchedKeywords = new HashSet<>();
+	    Set<String> matchedKeywords = new HashSet<>();
 	    
 	    for (String keyword : atsDetail.getTotalKeywords()) {
+	    	keyword = keyword.toLowerCase();
 	        if (pdfContent.contains(keyword)) {
 	            matchedKeywords.add(keyword);
 	        }else {
@@ -37,7 +38,6 @@ public class AtsCheckerService {
 	        }
 	    }
 	    
-	    atsDetail.setMatchedKeywords(matchedKeywords);
 	    atsDetail.setUnMatchedKeywords(unmatchedKeywords);
 	    
 	    double percentage = (double) matchedKeywords.size() / atsDetail.getTotalKeywords().size() * 100;
