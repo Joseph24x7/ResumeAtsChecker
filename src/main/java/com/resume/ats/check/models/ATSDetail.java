@@ -1,4 +1,4 @@
-package com.resume.ats.check.controller;
+package com.resume.ats.check.models;
 
 import java.util.List;
 

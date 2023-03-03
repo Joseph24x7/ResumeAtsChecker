@@ -1,28 +1,24 @@
-package com.resume.ats.check.controller;
+package com.resume.ats.check.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.resume.ats.check.service.KeywordExtractorService;
-import com.resume.ats.check.service.ScanPdfService;
+import com.resume.ats.check.models.ATSDetail;
 
 import lombok.RequiredArgsConstructor;
 
-@RestController
+@Service
 @RequiredArgsConstructor
-public class ResumeAtsCheckerController {
+public class AtsCheckerService {
 	
 	private final KeywordExtractorService keywordExtractorService;
 	private final ScanPdfService scanPdfService;
-
-	@PostMapping("/upload")
-	public ATSDetail uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("desc") String desc) throws IOException{
+	
+	public ATSDetail generateAtsDetails(MultipartFile file,String desc) throws IOException{
 		
 		ATSDetail atsDetail=new ATSDetail();
 		
@@ -50,6 +46,5 @@ public class ResumeAtsCheckerController {
 	    
 	    return atsDetail;
 	}
-
 
 }
