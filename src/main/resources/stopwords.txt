@@ -1,5 +1,4 @@
 field
-conceptual
 working
 equivalent
 required
@@ -9,5 +8,15 @@ troubleshoot
 understanding
 degree
 issues
-requirements
 least
+following
+must
+lots
+better
+happy
+commercial
+available
+linked
+related
+interest
+similar

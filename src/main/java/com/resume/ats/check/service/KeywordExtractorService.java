@@ -96,10 +96,10 @@ public class KeywordExtractorService {
 					String[] wordsSplit = token.split("/");
 					keywords.addAll(Arrays.asList(wordsSplit));
 				} else {
-					token = token.replaceAll("[^a-zA-Z0-9]", "");
+					token = token.replaceAll("[^a-zA-Z0-9]", " ").trim();
 					token = token.toLowerCase();
 					if (!stopWords.contains(token)) {
-						keywords.add(token);
+						keywords.addAll(Arrays.asList(token.split(" ")));
 					}
 				}
 			}
