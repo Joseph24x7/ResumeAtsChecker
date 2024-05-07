@@ -21,7 +21,7 @@ To build and run the application, you will need:
 ## Usage:
 
 - Open a REST API client tool such as Postman
-- Send a POST request to http://localhost:8080/check-resume
+- Send a POST request to http://localhost:8001/check-resume
 - Attach a resume PDF file to the request using the "file" parameter
 - Provide the job description as a string using the "desc" parameter
 - Send the request
