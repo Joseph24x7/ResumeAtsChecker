@@ -6,9 +6,9 @@ import java.util.Set;
 
 @Data
 public class ATSDetail {
-	
-	private Set<String> totalKeywords;
-	private Set<String> unMatchedKeywords;
-	private String matchPercentage;
+
+    private Set<String> totalKeywords;
+    private Set<String> unMatchedKeywords;
+    private String matchPercentage;
 
 }
