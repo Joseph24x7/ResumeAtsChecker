@@ -1,13 +1,27 @@
-# ResumeATSchecker
+# Resume ATS Checker
 
-ResumeATSchecker is a Java-based web application that utilizes the Apache OpenNLP library for keyword extraction and
-matching against the contents of a resume PDF file. The application takes a resume PDF and a job description as inputs,
-and then extracts the text from the PDF file and identifies the relevant keywords from the job description using
-OpenNLP. It then calculates the percentage of matched keywords in the resume and identifies any unmatched keywords.
+Resume ATS Checker is a web application designed to help job seekers optimize their resumes for Applicant Tracking Systems (ATS). The application analyzes a resume PDF and a job description to identify relevant keywords, calculate the match percentage, and highlight missing keywords. This tool empowers users to tailor their resumes to specific job requirements, increasing their chances of passing ATS filters.
 
-The project is designed to assist job seekers in ensuring that their resumes are optimized for applicant tracking
-systems (ATS) used by many employers. By identifying the relevant keywords from the job description, the application
-helps job seekers to tailor their resumes to meet the requirements of the specific job.
+## Features
+
+- Extracts text from resume PDFs and job descriptions.
+- Identifies matched and unmatched keywords using Apache OpenNLP.
+- Calculates the match percentage between the resume and job description.
+- Provides a user-friendly frontend for uploading files and viewing results.
+- REST API for backend analysis.
+
+## Libraries Used
+
+### Backend:
+- **Spring Boot**: Framework for building the backend REST API.
+- **Apache OpenNLP**: Library for natural language processing and keyword extraction.
+- **Maven**: Build and dependency management tool.
+
+### Frontend:
+- **React**: JavaScript library for building the user interface.
+- **Vite**: Development environment for fast builds.
+- **Bootstrap**: CSS framework for responsive design.
+- **React Icons**: Library for adding icons to the UI.
 
 ## Getting Started
 
@@ -15,27 +29,75 @@ helps job seekers to tailor their resumes to meet the requirements of the specif
 
 To build and run the application, you will need:
 
-- Java 17
-- Apache Maven
+- **Java 17**
+- **Apache Maven**
 
-## Installation:
+### Installation and Usage
 
-- Clone this repository to your local machine
-- Navigate to the project directory
-- Run mvn package to build the application
-- Run java -jar target/resumeatschecker.jar to start the application
+#### Step 1: Clone the Repository
 
-## Usage:
+1. Open a terminal and run the following command to clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/ResumeATSchecker.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd ResumeATSchecker
+   ```
 
-- Open a REST API client tool such as Postman
-- Send a POST request to http://localhost:8080/check-resume
-- Attach a resume PDF file to the request using the "file" parameter
-- Provide the job description as a string using the "desc" parameter
-- Send the request
-- The application will return the percentage of matched keywords and any unmatched keywords found in the resume in JSON
-  format.
+#### Step 2: Build and Start the Application
+
+1. Clean and build the application using Maven:
+   ```bash
+   mvn clean install
+   ```
+2. Start the Spring Boot application:
+   ```bash
+   mvn spring-boot:run
+   ```
+3. Open your browser and navigate to:
+   ```
+   http://localhost:8001
+   ```
+
+#### Step 3: Use the Application
+
+1. On the frontend, upload your resume PDF and job description as files.
+2. Click the "Analyze" button.
+3. View the match percentage and keyword analysis results.
+
+### Screenshots
+
+#### Initial View
+![Initial View](frontend/public/screenshots/initial-view.png)
+
+#### File Upload
+![File Upload](frontend/public/screenshots/file-upload.png)
+
+#### Analysis Result
+![Analysis Result](frontend/public/screenshots/analysis-result.png)
+
+## Project Structure
+
+### Backend
+- **`src/main/java/com/resume/ats/check`**: Contains the main application, controllers, models, and utility classes.
+- **`src/main/resources`**: Configuration files and NLP models.
+
+### Frontend
+- **`frontend/src`**: React components and styles.
+- **`frontend/public`**: Static assets.
 
 ## Acknowledgments
 
-This project was inspired by the need to optimize resumes for ATS systems, and is made possible by the Apache OpenNLP
-library.
+This project was made possible by the following libraries and tools:
+
+- **Apache OpenNLP**: For natural language processing.
+- **React**: For building the user interface.
+- **Bootstrap**: For responsive design.
+- **Spring Boot**: For backend development.
+- **Maven**: For build and dependency management.
+- **Vite**: For fast frontend development.
+
+## License
+
+This project is licensed under the MIT License.
