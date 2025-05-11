@@ -69,13 +69,13 @@ To build and run the application, you will need:
 ### Screenshots
 
 #### Initial View
-![Initial View](frontend/public/screenshots/initial-view.png)
+![Initial View](frontend/screenshots/initial-view.png)
 
 #### File Upload
-![File Upload](frontend/public/screenshots/file-upload.png)
+![File Upload](frontend/screenshots/file-upload.png)
 
 #### Analysis Result
-![Analysis Result](frontend/public/screenshots/analysis-result.png)
+![Analysis Result](frontend/screenshots/analysis-result.png)
 
 ## Project Structure
 
