@@ -7,6 +7,7 @@ import {FaFileUpload} from 'react-icons/fa'; // Importing icons for better visua
 function App() {
     const [resume, setResume] = useState(null);
     const [jobDescription, setJobDescription] = useState(null);
+    const [jobDescriptionText, setJobDescriptionText] = useState(''); // State for plain text job description
     const [result, setResult] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false); // Loading state for spinner
@@ -21,15 +22,19 @@ function App() {
         setResult(null);
         setLoading(true);
 
-        if (!resume || !jobDescription) {
-            setError('Please upload both resume and job description.');
+        if (!resume || (!jobDescription && !jobDescriptionText)) {
+            setError('Please upload a resume and provide a job description (file or plain text).');
             setLoading(false);
             return;
         }
 
         const formData = new FormData();
         formData.append('resume', resume);
-        formData.append('jobDescription', jobDescription);
+        if (jobDescription) {
+            formData.append('jobDescription', jobDescription);
+        } else {
+            formData.append('jobDescriptionText', jobDescriptionText);
+        }
 
         try {
             const response = await axios.post('http://localhost:8001/api/analyze', formData, {
@@ -39,10 +44,26 @@ function App() {
             });
             setResult(response.data);
         } catch (err) {
-            setError('An error occurred while analyzing the files.');
+            if (err.response && err.response.data && err.response.data.error) {
+                setError(err.response.data.error);
+            } else {
+                setError('An error occurred while analyzing the files.');
+            }
         } finally {
             setLoading(false);
         }
+    };
+
+    const handleClear = () => {
+        setResume(null);
+        setJobDescription(null);
+        setJobDescriptionText('');
+        setResult(null);
+        setError(null);
+
+        // Clear file input fields
+        document.getElementById('resumeInput').value = '';
+        document.getElementById('jobDescriptionInput').value = '';
     };
 
     return (
@@ -57,19 +78,30 @@ function App() {
                     <label className="form-label">Upload Resume:</label>
                     <div className="input-group">
                         <span className="input-group-text"><FaFileUpload/></span>
-                        <input type="file" className="form-control" accept="application/pdf"
+                        <input id="resumeInput" type="file" className="form-control" accept=".pdf,.doc,.docx,.txt,.odt,.rtf"
                                onChange={(e) => handleFileChange(e, setResume)}/>
                     </div>
+                    <small className="form-text text-muted">Supported formats: PDF, DOC, DOCX, TXT, ODT, RTF</small>
                 </div>
                 <div className="mb-3">
-                    <label className="form-label">Upload Job Description:</label>
+                    <label className="form-label">Upload Job Description (File):</label>
                     <div className="input-group">
                         <span className="input-group-text"><FaFileUpload/></span>
-                        <input type="file" className="form-control" accept="application/pdf"
+                        <input id="jobDescriptionInput" type="file" className="form-control" accept=".pdf,.doc,.docx,.txt,.odt,.rtf"
                                onChange={(e) => handleFileChange(e, setJobDescription)}/>
                     </div>
+                    <small className="form-text text-muted">Supported formats: PDF, DOC, DOCX, TXT, ODT, RTF</small>
                 </div>
-                <button type="submit" className="btn btn-primary w-100">Analyze</button>
+                <div className="mb-3">
+                    <label className="form-label">Or Enter Job Description (Plain Text):</label>
+                    <textarea className="form-control" rows="5" value={jobDescriptionText}
+                              onChange={(e) => setJobDescriptionText(e.target.value)}
+                              placeholder="Enter job description here..."></textarea>
+                </div>
+                <div className="d-flex justify-content-between">
+                    <button type="submit" className="btn btn-primary">Analyze</button>
+                    <button type="button" className="btn btn-secondary" onClick={handleClear}>Clear All</button>
+                </div>
             </form>
 
             {loading && <div className="text-center my-4">
