@@ -1,10 +1,13 @@
+### General ###
 HELP.md
+
+### Java ###
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+### Spring Tool Suite (STS) ###
 .apt_generated
 .classpath
 .factorypath
@@ -14,7 +17,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -32,6 +35,33 @@ build/
 ### VS Code ###
 .vscode/
 
-.mvn/wrapper
-mvnw.cmd
-mvnw
+### Node.js and npm ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### React ###
+dist/
+
+### Environment Variables ###
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+### Logs ###
+*.log
+logs/
+
+### OS-Specific Files ###
+.DS_Store
+Thumbs.db
+
+### Testing ###
+coverage/
+
+### Miscellaneous ###
+*.lock
+src/main/resources/static/

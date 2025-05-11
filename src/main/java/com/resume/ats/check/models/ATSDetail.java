@@ -1,8 +1,8 @@
 package com.resume.ats.check.models;
 
-import java.util.Set;
-
 import lombok.Data;
+
+import java.util.Set;
 
 @Data
 public class ATSDetail {
