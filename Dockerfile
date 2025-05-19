@@ -1,14 +1,28 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:17-jdk-slim
+# ------------ Stage 1: Build ------------
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the built JAR file into the container
-COPY target/resumeatschecker.jar app.jar
+# Copy pom.xml and download dependencies
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-# Expose the port the application runs on
-EXPOSE 8001
+# Copy the source code
+COPY src ./src
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Build the application
+RUN mvn clean package -DskipTests
+
+# ------------ Stage 2: Run ------------
+FROM eclipse-temurin:17-jdk-alpine
+
+WORKDIR /app
+
+# Copy the jar from the builder stage
+COPY --from=builder /app/target/*.jar app.jar
+
+# Expose the port
+EXPOSE 8080
+
+# Run the app
+CMD ["java", "-jar", "app.jar"]
