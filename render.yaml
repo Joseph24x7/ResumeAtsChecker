@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ResumeAtsChecker-1
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    buildCommand: "./mvnw clean package"
+    startCommand: "java -jar target/resumeatschecker.jar"
+    envVars:
+      - key: JAVA_TOOL_OPTIONS
+        value: "-XX:MaxRAMPercentage=75.0"
+    autoDeploy: true
