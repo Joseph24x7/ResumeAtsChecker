@@ -10,6 +10,12 @@ RUN mvn dependency:go-offline
 # Copy the source code
 COPY src ./src
 
+# Copy the frontend directory
+COPY frontend ./frontend
+
+# Install frontend dependencies
+RUN cd frontend && npm install
+
 # Build the application
 RUN mvn clean package -DskipTests
 
