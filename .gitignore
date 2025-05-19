@@ -64,4 +64,3 @@ coverage/
 
 ### Miscellaneous ###
 *.lock
-src/main/resources/static/
