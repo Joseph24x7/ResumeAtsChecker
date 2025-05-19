@@ -22,6 +22,9 @@ COPY frontend ./frontend
 # Install frontend dependencies
 RUN cd frontend && npm install
 
+# Install bootstrap
+RUN cd frontend && npm install bootstrap
+
 # Build the application
 RUN mvn clean package -DskipTests
 
