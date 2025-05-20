@@ -4,8 +4,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FaFileUpload} from 'react-icons/fa'; // Importing icons for better visuals
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8001/api/analyze';
-
 function App() {
     const [resume, setResume] = useState(null);
     const [jobDescription, setJobDescription] = useState(null);
@@ -39,7 +37,7 @@ function App() {
         }
 
         try {
-            const response = await axios.post(API_URL, formData, {
+            const response = await axios.post('https://resumevalidator.onrender.com/api/analyze', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

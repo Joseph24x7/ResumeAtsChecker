@@ -25,10 +25,6 @@ RUN cd frontend && npm install
 # Install bootstrap
 RUN cd frontend && npm install bootstrap
 
-# --- VITE_API_URL build arg for frontend ---
-ARG VITE_API_URL
-ENV VITE_API_URL=${VITE_API_URL}
-
 # Build the frontend with the environment variable
 RUN cd frontend && npm run build
 
