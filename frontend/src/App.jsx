@@ -37,7 +37,7 @@ function App() {
         }
 
         try {
-            const response = await axios.post('https://resumevalidator.onrender.com/api/analyze', formData, {
+            const response = await axios.post('http://localhost:8080/api/analyze', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
