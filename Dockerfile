@@ -25,7 +25,14 @@ RUN cd frontend && npm install
 # Install bootstrap
 RUN cd frontend && npm install bootstrap
 
-# Build the application
+# --- VITE_API_URL build arg for frontend ---
+ARG VITE_API_URL
+ENV VITE_API_URL=${VITE_API_URL}
+
+# Build the frontend with the environment variable
+RUN cd frontend && npm run build
+
+# Build the application (this will copy frontend/dist to Spring Boot static if configured in pom.xml)
 RUN mvn clean package -DskipTests
 
 # ------------ Stage 2: Run ------------
